@@ -9,14 +9,6 @@ var menuLinks = [
         ]
     },
     {
-        text: 'bom',
-        href: '#',
-        subLinks: [
-            { text: 'new', href: '/orders/new' },
-            { text: 'pending', href: '/orders/pending' },
-        ]
-    },
-    {
         text: 'account',
         href: '#',
         subLinks: [
@@ -145,6 +137,10 @@ subMenuEl.addEventListener('click', function(event) {
     const clickedLinkText = event.target.textContent;
     if (clickedLinkText === 'log in') {
         displayLoginModal();
+    } else if (clickedLinkText === 'prompt') {
+        window.prompt("This is a prompt asking for user input");
+    } else if (clickedLinkText === 'alert') {
+        window.alert('This is an alert to warn the user of an error');
     }
     if (clickedLinkText !== 'about');
     mainEl.innerHTML = '<h1>Photo Album</h1>';
@@ -247,6 +243,11 @@ function handleFileSelect(event) {
         const reader = new FileReader();
 
         reader.onload = function(e) {
+            if (!file.type.startsWith('image')) {
+                window.alert('Please select an image file');
+                return;
+            }
+
             const container = document.createElement('div');
             container.style.display = 'flex';
             container.style.flexDirection = 'column';
@@ -260,14 +261,31 @@ function handleFileSelect(event) {
             image.style.margin = '5px';
             image.style.padding = '5px';
 
-            const btn = document.createElement('button');
-            btn.innerHTML = 'Remove Image';
-            btn.addEventListener('click', function() {
+            const caption = document.createElement('p');
+            caption.innerHTML = 'caption';
+            caption.style.opacity = 0;
+
+            const caption_btn = document.createElement('button');
+            caption_btn.innerHTML = 'Add Caption';
+            caption_btn.addEventListener('click', function() {
+                caption.innerHTML = window.prompt('add caption to image');
+                caption.style.opacity = 1;
+                if (caption.innerHTML !== 'caption') {
+                    caption_btn.innerHTML = 'Update Caption';
+                }
+
+            });
+
+            const remove_btn = document.createElement('button');
+            remove_btn.innerHTML = 'Remove Image';
+            remove_btn.addEventListener('click', function() {
                 photoBucket.removeChild(container);
             });
 
+            container.appendChild(caption);
             container.appendChild(image);
-            container.appendChild(btn);
+            container.appendChild(caption_btn);
+            container.appendChild(remove_btn);
 
             photoBucket.appendChild(container);
         };
