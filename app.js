@@ -9,12 +9,11 @@ var menuLinks = [
         ]
     },
     {
-        text: 'orders',
+        text: 'bom',
         href: '#',
         subLinks: [
             { text: 'new', href: '/orders/new' },
             { text: 'pending', href: '/orders/pending' },
-            { text: 'history', href: '/orders/history' },
         ]
     },
     {
@@ -129,7 +128,7 @@ topMenuEl.addEventListener('click', function(event) {
             // Hide the submenu if ABOUT link is clicked
             subMenuEl.style.top = '0';
             subMenuEl.innerHTML = ''; // Clears submenu contents
-            mainEl.innerHTML = '<p>The purpose of this project is to show DOM manipulation principles</p>'
+            mainEl.innerHTML = '<h1>The purpose of this project is to show DOM manipulation principles</h1>'
         }
     } else {
         // Hide the submenu if the clicked link is already active
