@@ -268,12 +268,16 @@ function handleFileSelect(event) {
             const caption_btn = document.createElement('button');
             caption_btn.innerHTML = 'Add Caption';
             caption_btn.addEventListener('click', function() {
-                caption.innerHTML = window.prompt('add caption to image');
+                let userInput = window.prompt('add caption for image');
+                if (userInput.length === 0) {
+                    window.alert('User must enter text');
+                    return;
+                }
+                caption.innerHTML = userInput;
                 caption.style.opacity = 1;
                 if (caption.innerHTML !== 'caption') {
                     caption_btn.innerHTML = 'Update Caption';
                 }
-
             });
 
             const remove_btn = document.createElement('button');
