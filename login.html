@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body class="log">
+    <!-- Icon and Txt -->
+    <div class="dummyContainer">
+        <div class="loginBorderContainer" id="loginPage">
+            <span class="close">&times;</span>
+            <form action="index.html">
+                <div class="login">
+                    <div class="loginContainer">
+                        <div><img src="https://static.vecteezy.com/system/resources/previews/019/879/186/non_2x/user-icon-on-transparent-background-free-png.png" alt="" class="profilePic"></div>
+                        <div class="loginTxt">Login</div>
+                    </div>
+                </div>
+
+                <!-- Email and Password Section -->
+                <div class="emailAndPass">
+                    <div class="emailAndPassContainer">
+                        <div class="emailTxt">Email address</div>
+                        <div class="emailInput">
+                            <input type="text" class="input-field" required/>
+                            <br>
+                            <span class="emailError"></span>
+                            <!-- Error message container -->
+                        </div>
+                        <div class="buffer"></div>
+                        <div class="passTxt">Password</div>
+                        <div class="passInput">
+                            <input type="password" class="input-field" required/>
+                            <br>
+                            <span class="passError"></span>
+                            <!-- Error message container -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Login Button -->
+                <div class="loginBtn">
+                    <button type="submit" id="myAccount">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js" async defer></script>
+</body>
+
+</html>
